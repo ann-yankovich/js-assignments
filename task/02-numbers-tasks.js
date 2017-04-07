@@ -112,6 +112,15 @@ function getLinearEquationRoot(a, b) {
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
     throw new Error('Not implemented');
+
+    var scalar, mod1, mod2, cosA;
+
+    scalar = x1*x2 + y1*y2;
+    mod1 = Math.sqrt( Math.pow(x1, 2) + Math.pow(y1, 2) );
+    mod2 = Math.sqrt( Math.pow(x2, 2) + Math.pow(y2, 2) );
+    cosA = scalar/(mod1*mod2);
+    
+    return cosA;
 }
 
 /**
@@ -160,7 +169,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a,b,c) {
-    throw new Error('Not implemented');
+    return Math.sqrt( Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2) );
 }
 
 /**
