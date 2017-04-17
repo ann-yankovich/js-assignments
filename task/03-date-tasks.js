@@ -102,10 +102,16 @@ function angleBetweenClockHands(date) {
         
     if( hours >= 12 ) hours -= 12;
 
-    var hourPiece = Math.PI * 2 / 12,
-        minutePiece = Math.PI * 2 / 60;
-        
-    return Math.abs( hours * hourPiece - minutes * minutePiece );
+    var hourPiece = 360 / 12,
+        minutePiece = 360 / 60;
+
+    var angle = Math.abs( hours * hourPiece + hourPiece/60 * minutes - minutes * minutePiece);
+
+    if(angle > 180) angle -= 180;
+    
+    var angleRad = angle * Math.PI / 180;
+
+    return angleRad;
 }
 
 
